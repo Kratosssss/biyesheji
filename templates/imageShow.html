@@ -13,11 +13,17 @@
 
 {% include 'navbar.html' %}
 <div class="container">
+    <div class="button-group">
+        <button id="btn-mode1" class="btn btn-success">模式1</button>
+        <button id="btn-mode2" class="btn btn-success">模式2</button>
+        <button id="btn-mode3" class="btn btn-success">模式3</button>
+        <button id="btn-mode4" class="btn btn-success">模式4</button>
+    </div>
     {% if img %}
 {#      模式1  系统预测的#}
-        <div class="mode">
+        <div id="mode1" class="mode">
             <div class="mode-type">
-                模式一（系统预测）：
+                模式1（系统预测）：
             </div>
             <div class="mode1-tag">
                 <label>标签：</label>
@@ -26,47 +32,47 @@
         </div>
 
 {#     模式2   随机的#}
-{#        <div class="mode">#}
-{#            <div class="mode-type">#}
-{#                模式二（系统随机预测）：#}
-{#            </div>#}
-{#            <div class="mode1-tag">#}
-{#                <label>标签：</label>#}
-{#                    {{ random_tag.tag_description }}#}
-{#            </div>#}
-{#        </div>#}
+        <div id="mode2" class="mode" style="display: none;">
+            <div class="mode-type">
+                模式2（系统随机预测）：
+            </div>
+            <div class="mode1-tag">
+                <label>标签：</label>
+                    {{ random_tag.tag_description }}
+            </div>
+        </div>
 
 {#        模式3 别人的预测#}
-{#        <div class="mode3">#}
-{#            <div class="mode-type">#}
-{#                模式三（查看他人标签）：#}
-{#            </div>#}
-{#            <div class="mode3-others">#}
-{#                <table class="table table-hover" style="margin-bottom: 0;">#}
-{#                    <tr>#}
-{#                        <td>用户</td>#}
-{#                        <td>标签</td>#}
-{#                    </tr>#}
-{#                {% for match in others_matchs %}#}
-{#                    <tr>#}
-{#                        <td>{{ match.matchup_user.user_name }}</td>#}
-{#                        <td>{{ match.matchup_tag }}</td>#}
-{#                    </tr>#}
-{#                {% endfor %}#}
-{#                </table>#}
-{#            </div>#}
-{#        </div>#}
+        <div id="mode3" class="mode3" style="display: none;">
+            <div class="mode-type">
+                模式3（查看他人标签）：
+            </div>
+            <div class="mode3-others">
+                <table class="table table-hover" style="margin-bottom: 0;">
+                    <tr>
+                        <td>用户</td>
+                        <td>标签</td>
+                    </tr>
+                {% for match in others_matchs %}
+                    <tr>
+                        <td>{{ match.matchup_user.user_name }}</td>
+                        <td>{{ match.matchup_tag }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
 
         {#        模式4  取最多的别人的预测#}
-{#        <div class="mode">#}
-{#            <div class="mode-type">#}
-{#                模式四（最多被选择的标签）：#}
-{#            </div>#}
-{#            <div class="mode1-tag">#}
-{#                <label>标签：</label>#}
-{#                {{ max_tag.tag_description }}#}
-{#            </div>#}
-{#        </div>#}
+        <div id="mode4" class="mode" style="display: none;">
+            <div class="mode-type">
+                模式4（最多被选择的标签）：
+            </div>
+            <div class="mode1-tag">
+                <label>标签：</label>
+                {{ max_tag.tag_description }}
+            </div>
+        </div>
 
 
         <div class="choseTag-from" >
@@ -97,4 +103,32 @@
 </div>
 
 </body>
+<script>
+    $(function(){
+        $("#btn-mode1").on("click",(function() {
+            $("#mode1").show();
+            $("#mode2").hide();
+            $("#mode3").hide();
+            $("#mode4").hide();
+        }))
+        $("#btn-mode2").on("click",(function() {
+            $("#mode1").hide();
+            $("#mode2").show();
+            $("#mode3").hide();
+            $("#mode4").hide();
+        }))
+        $("#btn-mode3").on("click",(function() {
+            $("#mode1").hide();
+            $("#mode2").hide();
+            $("#mode3").show();
+            $("#mode4").hide();
+        }))
+        $("#btn-mode4").on("click",(function() {
+            $("#mode1").hide();
+            $("#mode2").hide();
+            $("#mode3").hide();
+            $("#mode4").show();
+        }))
+    })
+</script>
 </html>

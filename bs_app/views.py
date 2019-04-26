@@ -142,9 +142,17 @@ def imageShow(request):
             # print("决定就是这张图片了")
             break
     if pd is True:
-        # print("决定就是这张图片了")
+        # mode 1-4
+        random_tag = models.Tag.objects.all()[random.randint(0, 9)]
+        others_matchs = models.Matchup.objects.filter(matchup_picture=img)
+        max_match = models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(
+            tag_count=Count('matchup_tag')).order_by('-tag_count')[0]
+        max_tag = models.Tag.objects.get(id=max_match['matchup_tag']) if models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(
+            tag_count=Count('matchup_tag')).order_by('-tag_count')[0] else None
+        return render(request, "imageShow.html", {'img': img, 'max_tag': max_tag,  'random_tag': random_tag,'others_matchs': others_matchs})
+
         # mode1 系统预测
-        return render(request, "imageShow.html", {'img': img})
+        # return render(request, "imageShow.html", {'img': img})
 
         # mode2  系统随机返回一个标签
         # random_tag = models.Tag.objects.all()[random.randint(0, 9)]
