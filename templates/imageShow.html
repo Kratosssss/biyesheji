@@ -13,13 +13,13 @@
 
 {% include 'navbar.html' %}
 <div class="container">
-    <div class="button-group">
-        <button id="btn-mode1" class="btn btn-success">模式1</button>
-        <button id="btn-mode2" class="btn btn-success">模式2</button>
-        <button id="btn-mode3" class="btn btn-success">模式3</button>
-        <button id="btn-mode4" class="btn btn-success">模式4</button>
-    </div>
     {% if img %}
+        <div class="button-group">
+            <button id="btn-mode1" class="btn btn-success">模式1</button>
+            <button id="btn-mode2" class="btn btn-success">模式2</button>
+            <button id="btn-mode3" class="btn btn-success">模式3</button>
+            <button id="btn-mode4" class="btn btn-success">模式4</button>
+        </div>
 {#      模式1  系统预测的#}
         <div id="mode1" class="mode">
             <div class="mode-type">
@@ -98,7 +98,11 @@
             </form>
         </div>
     {% else %}
-        已经标记完所有图片
+        <div style="text-align: center; padding-top: 200px;">
+            <a href="/mainpage/" >
+            <h3>已经标记完所有图片,返回任务选择。。。</h3>
+            </a>
+        </div>
     {% endif %}
 </div>
 

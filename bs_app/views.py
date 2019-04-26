@@ -146,9 +146,9 @@ def imageShow(request):
         random_tag = models.Tag.objects.all()[random.randint(0, 9)]
         others_matchs = models.Matchup.objects.filter(matchup_picture=img)
         max_match = models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(
-            tag_count=Count('matchup_tag')).order_by('-tag_count')[0]
-        max_tag = models.Tag.objects.get(id=max_match['matchup_tag']) if models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(
-            tag_count=Count('matchup_tag')).order_by('-tag_count')[0] else None
+            tag_count=Count('matchup_tag')).order_by('-tag_count')[0] if models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(
+            tag_count=Count('matchup_tag')).order_by('-tag_count') else None
+        max_tag = models.Tag.objects.get(id=max_match['matchup_tag']) if max_match else None
         return render(request, "imageShow.html", {'img': img, 'max_tag': max_tag,  'random_tag': random_tag,'others_matchs': others_matchs})
 
         # mode1 系统预测
@@ -199,7 +199,7 @@ def tagChose(request):
     img.save()
     user.wallet += img.img_budget
     user.save()
-    request.session['wallet'] = user.wallet
+    request.session['wallet'] = round(user.wallet, 2)
 
     models.Matchup.objects.create(matchup_user=user, matchup_picture=img, matchup_tag=tag)
     return redirect("/imageShow/")

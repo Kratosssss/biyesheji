@@ -15,22 +15,24 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(models.Pictures)
 class PicAdmin(admin.ModelAdmin):
-    list_display = ['id', 'img_show', 'predict_tag',  'img_budget', 'img_tag_num', 'img_address']
+    list_display = ['img_show', 'predict_tag', 'final_tag',  'img_budget', 'img_tag_num']
+    list_per_page = 10
 
 @admin.register(models.Matchup)
 class MatchAdmin(admin.ModelAdmin):
-    list_display = ('id','matchup_u', 'matchup_p', 'matchup_t')
+    list_display = ('matchup_u', 'matchup_p', 'matchup_t')
+    list_per_page = 10
 
     def matchup_u(self, obj):
         return '%s' % obj.matchup_user.user_name
-    matchup_u.short_description = '用户'
+    matchup_u.short_description = '标记者'
 
     def matchup_p(self, obj):
         return format_html(
                 '<img src="{}" width="50px"/>',
                 obj.matchup_picture.img_address.url,
             )
-    matchup_p.short_description = '照片'
+    matchup_p.short_description = '图片'
 
     def matchup_t(self, obj):
         return '%s' % obj.matchup_tag.tag_description
@@ -38,7 +40,7 @@ class MatchAdmin(admin.ModelAdmin):
 
 @admin.register(models.MissionPackage)
 class MissionPackageAdmin(admin.ModelAdmin):
-    list_display = ('mission_u', 'total_price',  'begintime','description', 'isfinished')
+    list_display = ('mission_u', 'mission', 'total_price',  'begintime','description', 'isfinished')
 
     def total_price(self, obj):
         return '%.2f 元' % (obj.total_budget)
@@ -48,7 +50,12 @@ class MissionPackageAdmin(admin.ModelAdmin):
     mission_u.short_description = '委托客户'
 
 
+@admin.register(models.Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('tag_description', )
 
-admin.site.register(models.ClientInfo)
-admin.site.register(models.Tag)
+
+@admin.register(models.ClientInfo)
+class ClientInfoAdmin(admin.ModelAdmin):
+    list_display = ('client_name', 'email', 'wallet' )
 

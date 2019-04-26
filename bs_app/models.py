@@ -11,9 +11,17 @@ from django.dispatch.dispatcher import receiver
 # Create your models here.
 # 本数据表修改放这里
 
+class ClientInfo(models.Model):
 
+    id = models.AutoField(primary_key=True)
+    client_name = models.CharField(verbose_name='客户名', max_length=16,null=False)
+    password = models.CharField(max_length=16,null=False)
+    email = models.EmailField(verbose_name='email',null=False)
+    client_img = models.ImageField(null=True, blank=True, upload_to="client_imgs")
+    wallet = models.FloatField(verbose_name='钱包', default=100)
 
-
+    def __str__(self):
+        return self.client_name
 
 
 class UserInfo(models.Model):
@@ -23,7 +31,7 @@ class UserInfo(models.Model):
     password = models.CharField(max_length=16, null=False)
     email = models.EmailField(null=True, blank=True)
     user_img = models.ImageField(null=True, blank=True, upload_to="user_imgs")
-    wallet = models.FloatField(default=0)
+    wallet = models.FloatField(verbose_name='钱包', default=0)
 
     def user_img_show(self):
         if self.user_img:
@@ -44,9 +52,9 @@ class Pictures(models.Model):
     mission = models.ForeignKey('MissionPackage', blank=True, default='', on_delete=models.CASCADE)
     predict_tag = models.CharField(verbose_name='系统标签', null=True, blank=True, max_length=20)
     final_tag = models.CharField(verbose_name='最终标签', null=True, blank=True, max_length=20)
-    img_tag_num = models.IntegerField(default=0)
-    img_address = models.ImageField(null=False, upload_to="picture_imgs")
-    img_budget = models.FloatField(null=True, blank=True, default=0.01)
+    img_tag_num = models.IntegerField(verbose_name='标记次数', default=0)
+    img_address = models.ImageField(verbose_name='图片地址', null=False, upload_to="picture_imgs")
+    img_budget = models.FloatField(verbose_name='单价', null=True, blank=True, default=0.01)
 
 
 
@@ -69,23 +77,13 @@ class Matchup(models.Model):
     matchup_tag = models.ForeignKey('Tag', on_delete=models.CASCADE)
 
 
-class ClientInfo(models.Model):
 
-    id = models.AutoField(primary_key=True)
-    client_name = models.CharField(max_length=16,null=False)
-    password = models.CharField(max_length=16,null=False)
-    email = models.EmailField(null=False)
-    client_img = models.ImageField(null=True, blank=True, upload_to="client_imgs")
-    wallet = models.FloatField(default=100)
-
-    def __str__(self):
-        return self.client_name
 
 
 class Tag(models.Model):
 
     id = models.AutoField(primary_key=True)
-    tag_description = models.TextField()
+    tag_description = models.TextField(verbose_name="标签")
 
     def __str__(self):
         return self.tag_description
@@ -95,7 +93,7 @@ class MissionPackage(models.Model):
     id = models.AutoField(primary_key=True)
     client_id = models.ForeignKey('ClientInfo', blank=True, default='', on_delete=models.DO_NOTHING)
     pic_num = models.IntegerField(verbose_name="图片数量", blank=True,null=True)
-    mission = models.FileField(null=False, upload_to='missionpackages')
+    mission = models.FileField(verbose_name='任务包', null=False, upload_to='missionpackages')
     budget = models.FloatField(verbose_name='单价', null=True, blank=True, default=10)
     total_budget = models.FloatField(verbose_name='总价', null=True, blank=True)
     begintime = models.DateTimeField(verbose_name='上传时间', auto_now_add=True)
