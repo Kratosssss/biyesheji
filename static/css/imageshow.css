@@ -1,0 +1,53 @@
+body{
+    background-color: #f8f8f8;
+}
+.choseTag-from{
+    text-align: center;
+    margin-top: 100px;
+    padding-right: 200px;
+}
+.predict-img{
+
+float: left;
+
+width: 300px;
+}
+.budget{
+    margin: 30px;
+}
+.user-tag{
+
+position: relative;
+
+left: 15px;
+}
+.user-tag-label{
+    margin-right: 10px;
+}
+.user-tag-input{
+
+    width: 100px;
+}
+.user-btn{
+
+margin-top: 20px;
+}
+.mode{
+    width: 400px;
+    height: 100px;
+    margin: 50px auto 0;
+    border:1px solid #e7e7e7;
+    background-color: #f8f8f8;
+}
+.mode3{
+    width: 400px;
+    height: fit-content;
+    margin: 50px auto 0;
+    border:1px solid #e7e7e7;
+    background-color: #f8f8f8;
+}
+.mode1-tag{
+    width: fit-content;
+    margin: 15px auto 0 ;
+    display: block;
+}

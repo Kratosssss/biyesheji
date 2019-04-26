@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'navbar.html' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>主页</title>
+
+	<!-- 自己定义的css -->
+    <link rel="stylesheet" href="../static/css/mainpage.css">
+
+</head>
+<body>
+
+<section class="slider overly">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h1 class="animated fadeInUp">人机结合<br>  &amp; 图片分类标签系统</h1>
+                    <a href="https://make.figure-eight.com/jobs" target="_blank" class="animated fadeInUp" ><button class="btn btn-main main_btn">参考网站</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="block" style="margin-top: 100px;">
+                    <div class="section-title">
+                        <h2>关于项目</h2>
+                        <p> 目前监督统计机器学习主要包括训练集的确定，训练，检测。其中训练集是至关重要步骤，并且根据计算学习理论可知，当符合数据分布的训练集越大时，则训练得到的机器学习算法越准确，而训练集目前主要通过手工标注的形式实现的。一般通过专家或者众包实现（主要是由多个互联网用户标注完成）。</p>
+                    </div>
+                    <p>本课题主要是提出一种基于机器和互联网用户的标注系统，并利用机器学习算法将多个用户结果推导得到高质量的标注。
+                        本课题的最终目标是实现一个人机结合的高效图片分类标签系统。</p>
+                </div>
+            </div><!-- .col-md-7 close -->
+            <div class="col-md-5 col-sm-12">
+                <div class="block">
+                    <img src="../static/img/wrapper-img.png" alt="Img">
+                </div>
+            </div><!-- .col-md-5 close -->
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

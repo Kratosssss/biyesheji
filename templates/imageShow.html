@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/css/imageshow.css" />
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>标注</title>
+</head>
+<body>
+
+
+
+{% include 'navbar.html' %}
+<div class="container">
+    {% if img %}
+{#      模式1  系统预测的#}
+{#        <div class="mode">#}
+{#            <div class="mode-type">#}
+{#                模式一（系统预测）：#}
+{#            </div>#}
+{#            <div class="mode1-tag">#}
+{#                <label>标签：</label>#}
+{#                    {{ img.predict_tag }}#}
+{#            </div>#}
+{#        </div>#}
+
+{#     模式2   随机的#}
+{#        <div class="mode">#}
+{#            <div class="mode-type">#}
+{#                模式二（系统随机预测）：#}
+{#            </div>#}
+{#            <div class="mode1-tag">#}
+{#                <label>标签：</label>#}
+{#                    {{ random_tag.tag_description }}#}
+{#            </div>#}
+{#        </div>#}
+
+{#        模式3 别人的预测#}
+{#        <div class="mode3">#}
+{#            <div class="mode-type">#}
+{#                模式三（查看他人标签）：#}
+{#            </div>#}
+{#            <div class="mode3-others">#}
+{#                <table class="table table-hover" style="margin-bottom: 0;">#}
+{#                    <tr>#}
+{#                        <td>用户</td>#}
+{#                        <td>标签</td>#}
+{#                    </tr>#}
+{#                {% for match in others_matchs %}#}
+{#                    <tr>#}
+{#                        <td>{{ match.matchup_user.user_name }}</td>#}
+{#                        <td>{{ match.matchup_tag }}</td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+{#                </table>#}
+{#            </div>#}
+{#        </div>#}
+
+        {#        模式3 别人的预测#}
+        <div class="mode">
+            <div class="mode-type">
+                模式四（最多被选择的标签）：
+            </div>
+            <div class="mode1-tag">
+                <label>标签：</label>
+                {{ max_tag.tag_description }}
+            </div>
+        </div>
+
+
+        <div class="choseTag-from" >
+            <form  method="post" action="/tagChose/">
+                <div class="predict-img">
+                    <img src="/media/{{ img.img_address }}" />
+                </div>
+{#                <div class="predict-tag">#}
+{#                    <label name="sys_tag">系统标签</label>#}
+{#                    {{ img.predict_tag }}#}
+{#                </div>#}
+                <div class="budget">
+                    <label name="img_budget">报酬</label>
+                    {{ img.img_budget }}元
+                </div>
+                <div class="user-tag">
+                    <input type="hidden" name="img" value="{{ img.img_address }}"/>
+                    <label class="user-tag-label" name="tag">个人标签</label>
+                    <input class="user-tag-input" name="tag" />
+                </div>
+                 <br>
+                    <button class="user-btn btn" type="submit" >确定/下一张</button>
+            </form>
+        </div>
+    {% else %}
+        已经标记完所有图片
+    {% endif %}
+</div>
+
+</body>
+</html>

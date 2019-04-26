@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'navbar.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>挑选任务</title>
+</head>
+<body>
+{#用户挑选任务#}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+            <h2 class="text-center">可选任务</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-3">
+        <hr>
+        </div>
+    </div>
+
+
+
+        <table class="table table-hover">
+            <tr>
+                <td>委托人</td>
+                <td>单价(元/张)</td>
+                <td>图片数量</td>
+                <td>描述</td>
+                <td>进入</td>
+           </tr>
+            {% for mission in missions %}
+                <tr>
+                    <td>
+                        {{ mission.client_id.client_name }}
+                    </td>
+                    <td>{{ mission.budget}}元</td>
+                    <td>{{ mission.pic_num}}张</td>
+                    <td>{{ mission.description }}</td>
+                    <td>
+{#                        <a href="/imageShow?mission_id={{ mission.id }}">#}
+                        <button value="{{ mission.id }}" class="btn btn-primary">进入</button>
+{#                        </a>#}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+<script>
+    $(function(){
+        $("button").on("click",(function() {
+
+            //设置名称为name,值为value的Cookie
+            var expdate = new Date();   //初始化时间
+            var name="mission_id"
+            expdate.setTime(expdate.getTime() + 30 * 60 * 1000);   //时间
+            document.cookie = name+"="+this.value+";expires="+expdate.toGMTString()+";path=/";
+
+            window.location.href="/imageShow";
+
+        }))
+    })
+</script>
+</html>

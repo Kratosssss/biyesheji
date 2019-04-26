@@ -1,0 +1,139 @@
+<!--bootstrap css-->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+<!--animate 动画-->
+<link href="https://cdn.bootcss.com/animate.css/3.7.0/animate.css" rel="stylesheet">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="../static/css/navbar.css">
+<script src="../static/js/navbar.js"></script>
+
+<header>
+    <nav id="navbar" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/mainpage">人机结合的高效图片分类标签系统</a>
+            </div>
+            <div class="nav-left">
+                <ul class="nav navbar-nav nav-pills" >
+                    <li id="jianjie"><a href="/mainpage/">简介</a></li>
+                    {% if request.session.user_name %}
+                        <li><a href="/missionChose/">在线图片标注</a></li>
+                    {% endif %}
+
+                    {% if request.session.client_name %}
+{#                            客户要有功能#}
+                        <li><a href="/missionUpload/">上传需求标注的图片包</a></li>
+                        <li><a href="/missionShow/">我的任务</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul class="nav navbar-nav nav-pills" id="mine">
+                    <li class="dropdown float-right ">
+{#                        只要登陆了都有#}
+                        {% if request.session.is_login %}
+                        <a id="mine-name"class="dropdown-toggle" data-toggle="dropdown">
+{#                            判断用户登录还是客户登录#}
+                            {% if request.session.user_name %}
+                                用户：{{ request.session.user_name }}
+                                余额：{{ request.session.wallet }}
+                            {% elif request.session.client_name %}
+                                客户：{{ request.session.client_name }}
+                                余额：{{ request.session.wallet }}
+                            {% endif %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/logout/">登出</a></li>
+                        </ul>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#<meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">#}
+{##}
+{#    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <link href="../static/css/bootstrap.css" rel="stylesheet">#}
+{#	<!-- 自己定义的css -->#}
+{#    <link rel="stylesheet" href="../static/css/navbar.css">#}
+{##}
+{#    <!--animate 动画-->#}
+{#    <link href="https://cdn.bootcss.com/animate.css/3.7.0/animate.css" rel="stylesheet">#}
+{##}
+{#    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->#}
+{#    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>#}
+{##}
+{#    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->#}
+{#    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+{##}
+{#    <!-- 自己定义的js -->#}
+{#    <script src="../static/js/navbar.js"></script>#}
+{#</head>#}
+{#<body>#}
+{#<header>#}
+{#    <nav id="navbar" class="navbar navbar-default navbar-static-top" role="navigation">#}
+{#        <div class="container-fluid container">#}
+{#            <div class="navbar-header">#}
+{#                <a class="navbar-brand" href="/mainpage">人机结合的高效图片分类标签系统</a>#}
+{#            </div>#}
+{#            <div class="nav-left">#}
+{#                <ul class="nav navbar-nav nav-pills" >#}
+{#                    <li id="jianjie"><a href="/mainpage/">简介</a></li>#}
+{#                    {% if request.session.user_name %}#}
+{#                        <li><a href="/imageShow/">在线图片标注</a></li>#}
+{#                    {% endif %}#}
+{##}
+{#                    {% if request.session.client_name %}#}
+{#                            客户要有功能#}
+{#                        <li><a href="/uploadPicpackage/">上传需求标注的图片包</a></li>#}
+{#                        <li><a href="#">我的任务</a></li>#}
+{#                        <li><a href="/downloadPicPackage/">下载</a></li>#}
+{#                    {% endif %}#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="nav-right">#}
+{#                <ul class="nav navbar-nav nav-pills" id="mine">#}
+{#                    <li class="dropdown float-right">#}
+{#                        只要登陆了都有#}
+{#                        {% if request.session.is_login %}#}
+{#                        <a id="mine-name" href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+{#                            判断用户登录还是客户登录#}
+{#                            {% if request.session.user_name %}#}
+{#                                用户名：{{ request.session.user_name }}#}
+{#                            {% elif request.session.client_name %}#}
+{#                                客户名：{{ request.session.client_name }}#}
+{#                            {% endif %}#}
+{#                            <b class="caret"></b>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li><a href="/logout/">登出</a></li>#}
+{#                        </ul>#}
+{#                        {% endif %}#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </nav>#}
+{#</header>#}
+{#</body>#}
+{#</html>#}

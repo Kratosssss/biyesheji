@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'navbar.html' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>我的任务</title>
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+            <h2 class="text-center">我的任务</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-3">
+        <hr>
+        </div>
+    </div>
+
+
+
+        <table class="table table-hover">
+            <tr>
+                <td>任务地址</td>
+                <td>总价</td>
+                <td>任务价格</td>
+                <td>图片数量</td>
+                <td>描述</td>
+                <td>上传时间</td>
+                <td>任务进度</td>
+            </tr>
+            {% for mission in missions %}
+                <tr>
+                    <td>
+                        <a href="/media/{{ mission.mission  }}" >{{ mission.mission }}</a>
+                    </td>
+                    <td>{{ mission.total_budget }}元</td>
+                    <td>{{ mission.budget}}元</td>
+                    <td>{{ mission.pic_num}}张</td>
+                    <td>{{ mission.description }}</td>
+                    <td>{{ mission.begintime }}</td>
+                    <td>
+                        {% if mission.isfinished %}
+                        已完成
+                        {% else %}
+                        未完成
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
