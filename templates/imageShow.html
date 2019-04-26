@@ -15,15 +15,15 @@
 <div class="container">
     {% if img %}
 {#      模式1  系统预测的#}
-{#        <div class="mode">#}
-{#            <div class="mode-type">#}
-{#                模式一（系统预测）：#}
-{#            </div>#}
-{#            <div class="mode1-tag">#}
-{#                <label>标签：</label>#}
-{#                    {{ img.predict_tag }}#}
-{#            </div>#}
-{#        </div>#}
+        <div class="mode">
+            <div class="mode-type">
+                模式一（系统预测）：
+            </div>
+            <div class="mode1-tag">
+                <label>标签：</label>
+                    {{ img.predict_tag }}
+            </div>
+        </div>
 
 {#     模式2   随机的#}
 {#        <div class="mode">#}
@@ -57,16 +57,16 @@
 {#            </div>#}
 {#        </div>#}
 
-        {#        模式3 别人的预测#}
-        <div class="mode">
-            <div class="mode-type">
-                模式四（最多被选择的标签）：
-            </div>
-            <div class="mode1-tag">
-                <label>标签：</label>
-                {{ max_tag.tag_description }}
-            </div>
-        </div>
+        {#        模式4  取最多的别人的预测#}
+{#        <div class="mode">#}
+{#            <div class="mode-type">#}
+{#                模式四（最多被选择的标签）：#}
+{#            </div>#}
+{#            <div class="mode1-tag">#}
+{#                <label>标签：</label>#}
+{#                {{ max_tag.tag_description }}#}
+{#            </div>#}
+{#        </div>#}
 
 
         <div class="choseTag-from" >

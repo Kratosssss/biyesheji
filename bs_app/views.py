@@ -144,7 +144,7 @@ def imageShow(request):
     if pd is True:
         # print("决定就是这张图片了")
         # mode1 系统预测
-        # return render(request, "imageShow.html", {'img': img})
+        return render(request, "imageShow.html", {'img': img})
 
         # mode2  系统随机返回一个标签
         # random_tag = models.Tag.objects.all()[random.randint(0, 9)]
@@ -156,17 +156,16 @@ def imageShow(request):
         # return render(request, 'imageShow.html', {'img': img, 'others_matchs': others_matchs})
 
         # mode4 返回最高选项的标签
-
-        max_match = models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(tag_count=Count('matchup_tag')).order_by('-tag_count')[0]
-        # SELECT matchup_tag_id, COUNT(matchup_tag_id) AS tag_count
-        # WHERE matchup_picture_id = 1168
-        # GROUP BY matchup_tag_id
-        # ORDER BY tag_count DESC
-        # print(max_match.query)
-        print(max_match)
-        max_tag = models.Tag.objects.get(id=max_match['matchup_tag'])
-        print(max_tag.tag_description)
-        return render(request, 'imageShow.html', {'img': img, 'max_tag': max_tag})
+        # max_match = models.Matchup.objects.filter(matchup_picture=img).values('matchup_tag').annotate(tag_count=Count('matchup_tag')).order_by('-tag_count')[0]
+        # # SELECT matchup_tag_id, COUNT(matchup_tag_id) AS tag_count
+        # # WHERE matchup_picture_id = 1168
+        # # GROUP BY matchup_tag_id
+        # # ORDER BY tag_count DESC
+        # # print(max_match.query)
+        # print(max_match)
+        # max_tag = models.Tag.objects.get(id=max_match['matchup_tag'])
+        # print(max_tag.tag_description)
+        # return render(request, 'imageShow.html', {'img': img, 'max_tag': max_tag})
 
     else:
         # print("都标记完了")
