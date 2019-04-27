@@ -7,13 +7,13 @@ from keras.models import load_model
 import os
 
 print('load model...')
-model = load_model('D:\\pycharm\\biyesheji2\\templates\\keras_cifar10_trained_model.h5')  # 选取自己的.h模型名称
+model = load_model('./bs_app/utils/keras_cifar10_trained_model.h5')  # 选取自己的.h模型名称
 print('load done.')
 
 #一定要添加这段代码，先测试一下，可以避免ValueError: Tensor Tensor("Placeholder:0", shape=(3, 3, 1, 32), dtype=float32)
 #is not an element of this graph.的错误
 print("test model...")
-predict_img = cv2.imread('D:\\pycharm\\biyesheji2\\templates\\lqpic.jpg')
+predict_img = cv2.imread('./bs_app/utils/lqpic.jpg')
 predict_img = cv2.resize(predict_img, (32, 32), 3)
 predict_img = predict_img.reshape(1, 32, 32, 3).astype('float')
 predict_img /= 255
@@ -73,12 +73,16 @@ def uploadfile_to_database(imglist, path, mission_pickage_name, mission_id):
     predict_catagory = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship',
                         'truck']
     print(predict_catagory)
-    img_dir = 'D:\\pycharm\\biyesheji2\\static\\media\\'
+    # img_dir = 'D:\\pycharm\\biyesheji2\\static\\media\\'
+    img_dir = './static/media/'
+    print(os.getcwd())
+    print(img_dir)
     for tobe_predicit_img in tobe_predicit_list:
         # 依次读入图片并预测
         # 使用模型，在得到用户输入时会调用以下两个函数进行实时文本分类
-
+        print(img_dir + str(tobe_predicit_img.img_address))
         predict_img = cv2.imread(img_dir + str(tobe_predicit_img.img_address))
+        print(type(predict_img))
         predict_img = cv2.resize(predict_img, (32, 32), 3)
         predict_img = predict_img.reshape(1, 32, 32, 3).astype('float')
         predict_img /= 255
