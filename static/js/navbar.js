@@ -3,12 +3,19 @@
  */
 
 $(function(){
-// $("#navbar li").on("click",(function() {
-//         if(this.haveClass("active")){
-//                 this.removeClass("active")
-//         }
-//         $("#navbar li").removeClass("active");
-//         $(this).addClass("active");
-//
-// }))
+    $(window).scroll(function() {
+            let $this = $(this);
+            if($this.scrollTop() > $(".hero").outerHeight() - 150) {
+                $(".navbar-mine").addClass("bg-dark");
+            }else{
+                $(".navbar-mine").removeClass("bg-dark");
+            }
+
+            $("section").each(function() {
+                if($this.scrollTop() >= ($(this).offset().top - $(".navbar-mine").outerHeight())) {
+                    $(".smooth-link").parent().removeClass("active");
+                    $(".smooth-link[href='#"+$(this).attr("id")+"']").parent().addClass('active');
+                }
+            });
+        });
 })
