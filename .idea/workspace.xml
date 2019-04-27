@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36e99f8d-4cb3-4adf-85e4-6adf50d65bed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="36e99f8d-4cb3-4adf-85e4-6adf50d65bed" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +81,7 @@
           <entry key="gitignore" value="10" />
           <entry key="html" value="5303" />
           <entry key="js" value="261" />
-          <entry key="py" value="15631" />
+          <entry key="py" value="15632" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -93,18 +90,18 @@
           <entry key="HTML" value="5303" />
           <entry key="JavaScript" value="261" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Python" value="15631" />
+          <entry key="Python" value="15632" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bs_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5730">
-              <caret line="199" column="33" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
+            <state relative-caret-position="163">
+              <caret line="191" column="1" selection-start-line="191" selection-start-column="1" selection-end-line="191" selection-end-column="1" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -115,7 +112,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bs_app/utils/UploadUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
+            <state relative-caret-position="330">
               <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
@@ -124,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="420">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -232,7 +229,6 @@
         <option value="$PROJECT_DIR$/bs_app/utils/ImageUtils.py" />
         <option value="$PROJECT_DIR$/bs_app/utils/UploadUtils.py" />
         <option value="$PROJECT_DIR$/templates/mainpage.html" />
-        <option value="$PROJECT_DIR$/bs_app/views.py" />
         <option value="$PROJECT_DIR$/templates/imageShow.html" />
         <option value="$PROJECT_DIR$/bs_app/models.py" />
         <option value="$PROJECT_DIR$/bs_app/admin.py" />
@@ -249,6 +245,7 @@
         <option value="$PROJECT_DIR$/templates/missionShow.html" />
         <option value="$PROJECT_DIR$/biyesheji2/settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/bs_app/views.py" />
       </list>
     </option>
   </component>
@@ -258,9 +255,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="140" />
-    <option name="y" value="20" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="52" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
@@ -679,6 +675,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="20" column="10" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -782,26 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bs_app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5730">
-          <caret line="199" column="33" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bs_app/utils/UploadUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/biyesheji2/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2700">
@@ -814,8 +793,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        <state relative-caret-position="420">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bs_app/utils/UploadUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bs_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="191" column="1" selection-start-line="191" selection-start-column="1" selection-end-line="191" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

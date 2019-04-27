@@ -200,6 +200,5 @@ def tagChose(request):
     user.wallet += img.img_budget
     user.save()
     request.session['wallet'] = round(user.wallet, 2)
-
     models.Matchup.objects.create(matchup_user=user, matchup_picture=img, matchup_tag=tag)
     return redirect("/imageShow/")
