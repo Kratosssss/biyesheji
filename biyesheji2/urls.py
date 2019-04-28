@@ -24,9 +24,11 @@ from django.views.static import serve
 # 可以设置访问页面去调用其他方法
 urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+
     # admin
     path('admin/', admin.site.urls),
     # common
+    path('', views.index),
     path('index/', views.index),
     path('logout/', views.logout),
     path('mainpage/', views.mainpage),
