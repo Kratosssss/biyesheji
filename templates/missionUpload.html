@@ -24,6 +24,7 @@
         </div>
     </div>
     <form class="form-horizontal uploadform" action="/upload/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="form-group">
             <label for="mp" class="col-md-4 control-label">任务包：</label>
             <div class="col-md-5">

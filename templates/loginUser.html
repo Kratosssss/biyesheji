@@ -23,6 +23,7 @@
         <h2 class="text-center" style="margin-top: 50px;">人机结合 & 图片分类标签系统</h2>
         <div class="col-md-4 col-md-offset-4">
             <form class='form-login' action="/loginUser/" method="post">
+                {% csrf_token %}
                 <h2 class="text-center">用户登录</h2>
                 <div class="form-group">
                     <label for="id_username">用户名：</label>
