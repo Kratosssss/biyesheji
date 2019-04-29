@@ -28,17 +28,18 @@ urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
     # common
-    path('', views.index),
     path('index/', views.index),
     path('logout/', views.logout),
     path('mainpage/', views.mainpage),
     # user
     path('loginUser/', views.loginUser),
     path('missionChose/', views.missionChose),
+    path('registUser/',views.registUser),
     path('imageShow/', views.imageShow),
     path('tagChose/', views.tagChose),
     # client
     path('loginClient/', views.loginClient),
+    path('registClient/', views.registClient),
     path('upload/', views.upload),
     path('missionUpload/', views.missionUpload),
     path('missionShow/', views.missionShow),

@@ -4,7 +4,7 @@ from django.contrib import messages
 from biyesheji2.settings import MEDIA_ROOT
 import os
 from bs_app import models
-from bs_app.utils import FileUtils,UploadUtils,LoginUtils
+from bs_app.utils import FileUtils,UploadUtils,LoginUtils,RegistUtils
 from django.db.models import Avg, Min, Max, Count, Sum
 import random
 
@@ -20,6 +20,38 @@ def index(request):
 def mainpage(request): # request是必须带的实例。类似class下方法必须带self一样
     return render(request, "mainpage.html",)
 
+def registUser(request):
+    if request.session.get('is_login', None):
+        return redirect('/mainpage', )
+    if request.method == "GET":
+        return render(request,'registUser.html')
+    if request.method == 'POST':
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
+        email = request.POST.get('email', None)
+        try:
+            if RegistUtils.UserRegist(username,password,email):
+                messages.add_message(request, messages.WARNING, '创建成功')
+        except:
+            messages.add_message(request, messages.WARNING, '创建失败')
+        return render(request, 'registUser.html')
+
+
+def registClient(request):
+    if request.session.get('is_login', None):
+        return redirect('/mainpage', )
+    if request.method == "GET":
+        return render(request,'registClient.html')
+    if request.method == 'POST':
+        clientname = request.POST.get('clientname', None)
+        password = request.POST.get('clientpassword', None)
+        email = request.POST.get('email', None)
+        try:
+            if RegistUtils.ClientRegist(clientname, password, email):
+                messages.add_message(request, messages.WARNING, '创建成功')
+        except:
+            messages.add_message(request, messages.WARNING, '创建失败')
+        return render(request, 'registClient.html')
 
 # 用户登陆
 def loginUser(request):
