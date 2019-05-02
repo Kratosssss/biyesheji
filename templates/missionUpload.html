@@ -10,7 +10,7 @@
 
 <body>
 <div class="container" >
-    <div class="row" style="margin-top: 50px;">
+    <div class="row" style="margin-top: 75px;">
         <div class="col-md-4"></div>
         <div class="col-md-3">
             <h2 class="text-center">上传任务包</h2>
@@ -23,7 +23,7 @@
         <hr>
         </div>
     </div>
-    <form class="form-horizontal uploadform" action="/upload/" method="post" enctype="multipart/form-data">
+    <form style="margin-top: 50px;" class="form-horizontal uploadform" action="/upload/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <label for="mp" class="col-md-4 control-label">任务包：</label>

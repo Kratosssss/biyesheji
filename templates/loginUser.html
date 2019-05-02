@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户登陆</title>
+    <title>标注者登陆</title>
 </head>
 <body>
     <div class="container">
@@ -24,7 +24,7 @@
         <div class="col-md-4 col-md-offset-4">
             <form class='form-login' action="/loginUser/" method="post">
                 {% csrf_token %}
-                <h2 class="text-center">用户登录</h2>
+                <h2 class="text-center">标注者登录</h2>
                 <div class="form-group">
                     <label for="id_username">用户名：</label>
                     <input type="text" name='username' class="form-control" id="id_username" placeholder="Username" autofocus required>

@@ -43,7 +43,7 @@
                         <a id="mine-name"class="dropdown-toggle" data-toggle="dropdown">
 {#                            判断用户登录还是客户登录#}
                             {% if request.session.user_name %}
-                                用户：{{ request.session.user_name }}
+                                标注者：{{ request.session.user_name }}
                                 余额：{{ request.session.wallet }}
                             {% elif request.session.client_name %}
                                 客户：{{ request.session.client_name }}
